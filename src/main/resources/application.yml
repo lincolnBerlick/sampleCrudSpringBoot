@@ -1,0 +1,53 @@
+
+spring:
+  #  security:
+  #    oauth2:
+  #      client:
+  #        clientId: pokermanager-app
+  #        clientSecret: lincoln
+  #      resource:
+  #        tokenInfoUri: http://localhost:8095/oauth/check_token
+#  security:
+#    oauth2:
+#      resourceserver:
+#        opaquetoken:
+#          introspection-uri: http://localhost:8095/oauth/check_token
+#          client-id: pokermanager-app
+#          client-secret: lincoln
+#
+#  jpa:
+#    database: POSTGRESQL
+#    database-plataform: org.hibernate.dialect.PostgreSQLDialect
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: none
+#  datasource:
+#    driverClassName: org.postgresql.Driver
+#    url: jdbc:postgresql://localhost:5432/POKERMANAGER
+#    username: postgres
+#    password: postgres
+#  main:
+#    allow-bean-definition-overriding: true
+
+
+  #logging:
+  #  level:
+  #    ROOT: DEBUG
+
+  jpa:
+    database: ORACLE
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+
+  datasource:
+    driverClassName: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@localhost:1521/ORCLCDB.localdomain
+    username: lincoln
+    password: lincoln
+
+  flyway:
+    enabled: true
+    validate-on-migrate: true
+    out-of-order: true
+    baseline-on-migrate: true

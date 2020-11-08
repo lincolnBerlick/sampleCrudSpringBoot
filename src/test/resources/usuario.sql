@@ -1,0 +1,2 @@
+insert into USUARIO (id, nome, cpf, data_nascimento) values (10, 'Usuario', '91327277042', to_date('07/03/1991', 'dd/mm/yyyy'));
+insert into USUARIO (id, nome, cpf, data_nascimento) values (11, 'Fulano', '79592718016', to_date('07/03/1991', 'dd/mm/yyyy'));

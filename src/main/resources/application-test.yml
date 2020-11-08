@@ -1,0 +1,22 @@
+spring:
+  jackson:
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+
+  jpa:
+    database-platform:
+    database: H2
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+      dialect: org.hibernate.dialect.H2Dialect
+  datasource:
+    url:
+    jdbcUrl: jdbc:h2:mem:pokermanager;DB_CLOSE_DELAY=-1
+    username: sa
+    password: sa
+    driverClassName: org.h2.Driver
+  flyway:
+    enabled: false
+    validate-on-migrate: true
+    out-of-order: true
