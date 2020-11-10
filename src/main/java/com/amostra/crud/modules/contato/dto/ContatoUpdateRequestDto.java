@@ -23,9 +23,13 @@ public class ContatoUpdateRequestDto {
     private String nome;
 
     @Email
+    @NotEmpty
     private String email;
 
     @NotEmpty
     @NumberFormat
     private String telefone;
+
+    @NotNull
+    private Integer usuarioId;
 }

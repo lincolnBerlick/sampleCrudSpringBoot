@@ -1,16 +1,11 @@
 package com.amostra.crud.modules.contato.model;
 
-import com.amostra.crud.config.comum.implementa.BeanUtil;
 import com.amostra.crud.modules.contato.dto.ContatoSaveRequestDto;
 import com.amostra.crud.modules.contato.dto.ContatoUpdateRequestDto;
 import com.amostra.crud.modules.usuario.model.Usuario;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
-import org.hibernate.annotations.DynamicUpdate;
-import org.springframework.beans.BeanUtils;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
 @Entity
 @Builder
@@ -53,7 +48,16 @@ public class Contato {
                 .build();
     }
 
-    public static void of(Contato contato, ContatoUpdateRequestDto contatoUpdateRequestDto) {
-        BeanUtil.copyProperties(contatoUpdateRequestDto, contato);
+    public static Contato of(ContatoUpdateRequestDto contatoUpdateRequestDto) {
+        return Contato.builder()
+                .id(contatoUpdateRequestDto.getContatoId())
+                .nome(contatoUpdateRequestDto.getNome())
+                .email(contatoUpdateRequestDto.getEmail())
+                .telefone(contatoUpdateRequestDto.getTelefone())
+                .usuario(Usuario.builder()
+                        .id(contatoUpdateRequestDto.getUsuarioId())
+                        .build())
+                .build();
     }
+
 }

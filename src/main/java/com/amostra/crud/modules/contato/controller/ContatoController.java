@@ -1,6 +1,5 @@
 package com.amostra.crud.modules.contato.controller;
 
-
 import com.amostra.crud.modules.contato.dto.ContatoSaveRequestDto;
 import com.amostra.crud.modules.contato.dto.ContatoUpdateRequestDto;
 import com.amostra.crud.modules.contato.filtros.ContatoFiltros;

@@ -20,6 +20,7 @@ public static ContatoSaveRequestDto umContatoRequeset(String email, String telef
             .nome(nome)
             .email(email)
             .telefone(telefone)
+            .usuarioId(10)
             .build();
     }
 

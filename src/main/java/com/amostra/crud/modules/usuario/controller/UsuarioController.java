@@ -2,17 +2,18 @@ package com.amostra.crud.modules.usuario.controller;
 
 import com.amostra.crud.modules.usuario.dto.UsuarioRequest;
 import com.amostra.crud.modules.usuario.dto.UsuarioRequestUpdateDto;
+import com.amostra.crud.modules.usuario.dto.UsuarioResponseSelectDto;
 import com.amostra.crud.modules.usuario.filtros.UsuarioRequestFiltro;
 import com.amostra.crud.modules.usuario.model.Usuario;
 import com.amostra.crud.modules.usuario.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/usuario")
@@ -38,7 +39,7 @@ public class UsuarioController {
     }
 
     @PutMapping
-    public Usuario updateUsuario(@RequestBody UsuarioRequestUpdateDto usuarioRequestUpdateDto) {
+    public Usuario updateUsuario(@RequestBody @Valid  UsuarioRequestUpdateDto usuarioRequestUpdateDto) {
         return service.updateUsuario(usuarioRequestUpdateDto);
     }
 
@@ -47,11 +48,9 @@ public class UsuarioController {
         return service.findAll(pageable, filtro);
     }
 
-//    @GetMapping("/ping")
-//    public UsuarioRequest ping() {
-//        var user = UsuarioRequest.builder()
-//                .dataNascimento(LocalDate.now().now)
-//                .build();
-//        return user;
-//    }
+    @GetMapping("/findAllSelect")
+    public List<UsuarioResponseSelectDto> findAllUsersSelect() {
+        return service.getSelectUsers();
+    }
+
 }

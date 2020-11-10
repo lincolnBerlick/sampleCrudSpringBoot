@@ -9,11 +9,11 @@ import java.util.Optional;
 
 public class usuarios {
 
-    public static UsuarioRequestUpdateDto umUsuarioRequestUpdateDto(Integer id) {
-        return com.amostra.crud.modules.usuario.dto.UsuarioRequestUpdateDto.builder()
-                .usuarioId(id)
+    public static UsuarioRequestUpdateDto umUsuarioRequestUpdateDto(Integer id, String cpf) {
+        return UsuarioRequestUpdateDto.builder()
+                .id(id)
                 .nome("Fulano")
-                .cpf("79592718016")
+                .cpf(cpf)
                 .dataNascimento(LocalDate.of(1991, 3, 7))
                 .build();
     }

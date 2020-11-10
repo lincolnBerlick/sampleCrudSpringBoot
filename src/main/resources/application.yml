@@ -1,39 +1,4 @@
-
 spring:
-  #  security:
-  #    oauth2:
-  #      client:
-  #        clientId: pokermanager-app
-  #        clientSecret: lincoln
-  #      resource:
-  #        tokenInfoUri: http://localhost:8095/oauth/check_token
-#  security:
-#    oauth2:
-#      resourceserver:
-#        opaquetoken:
-#          introspection-uri: http://localhost:8095/oauth/check_token
-#          client-id: pokermanager-app
-#          client-secret: lincoln
-#
-#  jpa:
-#    database: POSTGRESQL
-#    database-plataform: org.hibernate.dialect.PostgreSQLDialect
-#    show-sql: true
-#    hibernate:
-#      ddl-auto: none
-#  datasource:
-#    driverClassName: org.postgresql.Driver
-#    url: jdbc:postgresql://localhost:5432/POKERMANAGER
-#    username: postgres
-#    password: postgres
-#  main:
-#    allow-bean-definition-overriding: true
-
-
-  #logging:
-  #  level:
-  #    ROOT: DEBUG
-
   jpa:
     database: ORACLE
     show-sql: true

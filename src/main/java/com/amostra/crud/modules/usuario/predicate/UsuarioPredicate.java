@@ -3,7 +3,6 @@ package com.amostra.crud.modules.usuario.predicate;
 import static com.amostra.crud.modules.usuario.model.QUsuario.usuario;
 import com.querydsl.core.BooleanBuilder;
 
-import lombok.Builder;
 import org.springframework.util.ObjectUtils;
 
 import java.time.LocalDate;

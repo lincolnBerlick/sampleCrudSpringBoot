@@ -9,10 +9,12 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.beans.BeanUtils;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import java.time.LocalDate;
 import java.util.List;
@@ -32,14 +34,19 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "SEQ_USER")
     private Integer id;
 
+    @NotEmpty
     @Column(name = "NOME")
     String nome;
 
+
     @Column(name = "CPF", unique = true)
+    @CPF
+    @NotEmpty
     String cpf;
 
     @Column(name = "DATA_NASCIMENTO")
     @Past
+    @NotNull
     private LocalDate dataNascimento;
 
     @JsonIgnore

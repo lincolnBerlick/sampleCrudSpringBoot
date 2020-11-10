@@ -1,7 +1,6 @@
 package com.amostra.crud.modules.contato.service;
 
 import com.amostra.crud.config.comum.exceptions.ValidacaoException;
-import com.amostra.crud.config.comum.implementa.BeanUtil;
 import com.amostra.crud.modules.contato.dto.ContatoSaveRequestDto;
 import com.amostra.crud.modules.contato.dto.ContatoUpdateRequestDto;
 import com.amostra.crud.modules.contato.filtros.ContatoFiltros;
@@ -12,7 +11,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.Optional;
 
 @Service
@@ -35,13 +33,8 @@ public class ContatoService {
     }
 
     public Contato update(ContatoUpdateRequestDto contatoUpdateRequestDto) {
-        var contatoToUpdate = new Contato();
-        findOneOrElseThrow(contatoUpdateRequestDto.getContatoId())
-                .ifPresent(contato -> {
-                    Contato.of(contato, contatoUpdateRequestDto);
-                    BeanUtil.copyProperties(contato, contatoToUpdate);
-                });
-        return contatoRepository.save(contatoToUpdate);
+        findOneOrElseThrow(contatoUpdateRequestDto.getContatoId());
+        return contatoRepository.save(Contato.of(contatoUpdateRequestDto));
     }
 
     private Optional<Contato> findOneOrElseThrow(Integer contatoId) {
@@ -50,6 +43,7 @@ public class ContatoService {
     }
 
     public Page<Contato> findAll(Pageable pageable, ContatoFiltros contatoFiltros) {
-       return contatoRepository.findAll(contatoFiltros.toPredicate(), pageable);
+        return contatoRepository.findAll(contatoFiltros.toPredicate(), pageable);
     }
+
 }
